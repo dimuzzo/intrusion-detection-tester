@@ -5,13 +5,13 @@ import time
 # A dictionary to store the timestamps of SYN packets for each source IP
 SYN_PACKETS = {}
 
-# A set to keep track of IPs that have been flagged for flooding
-FLOODING_IPS = set()
+# A dictionary to keep track of IPs that have been flagged for flooding
+FLOODING_IPS = {}
 
 # Configuration settings (could be loaded from a config file)
 TIME_WINDOW = 60  # Time window in seconds to monitor for SYN floods
 MAX_SYN_PER_IP = 20  # Max number of SYN packets allowed from a single IP within the time window
-
+ALERT_COOLDOWN = 10 # Print a new alert for the same IP only after 30 seconds
 
 def packet_callback(packet):
     """
@@ -19,6 +19,7 @@ def packet_callback(packet):
     """
     if TCP in packet and packet[TCP].flags == 'S':
         src_ip = packet[IP].src
+        dst_port = packet[TCP].dport
         current_time = time.time()
 
         # Check if we have seen this IP before
@@ -34,10 +35,10 @@ def packet_callback(packet):
 
         # Check if the number of SYN packets exceeds the threshold
         if len(SYN_PACKETS[src_ip]) > MAX_SYN_PER_IP:
-            if src_ip not in FLOODING_IPS:
-                dst_port = packet[TCP].dport
-                print(f"ALERT: Potential SYN Flood attack detected from IP: {src_ip} targeting port {dst_port}")
-                FLOODING_IPS.add(src_ip)
+            last_alert_time = FLOODING_IPS.get(src_ip)
+            if not last_alert_time or (current_time - last_alert_time) > ALERT_COOLDOWN:
+                print(f"ALERT: Potential SYN Flood from {src_ip} targeting port {dst_port} ({len(SYN_PACKETS[src_ip])} SYNs in {TIME_WINDOW}s)")
+                FLOODING_IPS[src_ip] = current_time
 
 def start_sniffing(interface=None):
     """
