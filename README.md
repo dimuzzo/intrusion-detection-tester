@@ -17,7 +17,7 @@ The IDS listens to network traffic on a specified interface. For each packet, it
 ## Requirements
 
 -   Python 3.7+
--   `scapy`
+-   Scapy
 
 You will also need administrative/root privileges to run the packet sniffer.
 
@@ -26,7 +26,7 @@ You will also need administrative/root privileges to run the packet sniffer.
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/dimuzzo/intrusion-detection-tester.git
-    cd intrusion-detection-system
+    cd intrusion-detection-tester
     ```
 
 2.  **Install the dependencies:**
