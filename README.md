@@ -1,4 +1,8 @@
-# Real-Time Intrusion Detection System (IDS)
+# Real-Time Intrusion Detection System (IDS)  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+
+![GitHub last commit](https://img.shields.io/github/last-commit/dimuzzo/arduino-exercises?style=flat-square&logo=github&label=Last%20Commit)
+![GitHub repo size](https://img.shields.io/github/repo-size/dimuzzo/arduino-exercises?style=flat-square&logo=github&label=Repo%20Size)
+![GitHub stars](https://img.shields.io/github/stars/dimuzzo/arduino-exercises?style=flat-square&logo=github&label=Stars)
 
 This project is a simple real-time Intrusion Detection System (IDS) built with Python and Scapy. It's designed to monitor network traffic and detect potential threats, such as SYN Flood attacks.
 
@@ -59,3 +63,8 @@ The script will start monitoring the traffic and print an alert to the console i
 ## Disclaimer
 
 This is a basic educational tool and should not be used as a standalone, production-grade security solution.
+
+---
+
+> Created with passion by [dimuzzo](https://github.com/dimuzzo)
+
