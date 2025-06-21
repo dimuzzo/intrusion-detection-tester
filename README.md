@@ -1,4 +1,4 @@
-# Real-Time Intrusion Detection System (IDS)  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+# Real-Time Intrusion Detection System (IDS)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/dimuzzo/intrusion-detection-tester?style=flat-square&logo=github&label=Last%20Commit)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dimuzzo/intrusion-detection-tester?style=flat-square&logo=github&label=Repo%20Size)
