@@ -14,7 +14,7 @@ This is a learning project based on the concepts described in [this freeCodeCamp
 -   **SYN Flood Detection**: Identifies potential Denial-of-Service (DoS) attacks by monitoring the rate of SYN packets from a single source IP.
 -   **Configurable**: Easily adjust detection parameters like the time window and packet thresholds.
 
-## How It Worksintrusion-detection-tester
+## How It Works
 
 The IDS listens to network traffic on a specified interface. For each packet, it checks if it's a TCP packet with the SYN flag set. It maintains a record of recent SYN packets for each source IP address. If the number of SYN packets from a single IP exceeds a defined threshold within a specific time window, it raises an alert.
 
